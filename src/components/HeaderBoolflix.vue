@@ -1,0 +1,51 @@
+<template>
+  <header>
+
+      <h1>BOOLFLIX</h1>
+
+      <div class="container-search">
+          <input class="input-search" type="text">
+          <button class="btn-search">Cerca</button>
+      </div>
+
+  </header>
+</template>
+
+<script>
+export default {
+name: 'HeaderBoolflix'
+}
+</script>
+
+<style scoped lang="scss">
+
+header {
+    height: 5rem;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    h1 {
+        color: red;
+        cursor: pointer;
+    }
+    .input-search {
+        height: 30px;
+        width: 200px;
+        padding: .3rem;
+    }
+    .btn-search {
+        color: white;
+        background-color: red;
+        padding: .5rem 1.3rem;
+        border: none;
+        font-size: 16px;
+        margin-left: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(255, 83, 83);
+        }
+    }
+}
+</style>
