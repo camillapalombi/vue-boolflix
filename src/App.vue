@@ -27,9 +27,8 @@ export default {
     SetFilmSrc(filmArguments) {
       console.log(filmArguments)
       this.stringSearchFilm = filmArguments;
-    }
+    },
   }
-  
 }
 </script>
 
