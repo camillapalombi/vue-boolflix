@@ -2,11 +2,13 @@
   <main>
       <section class="section-films">
           <h2>FILMS</h2>
-          <box-film v-for="films in caractherFilms" :key="films.id" :data-films="films" />
+          <div class="no-results" v-if="caractherFilms == ''">Questa ricerca non ha prodotto risultati!</div>
+          <box-film v-else v-for="films in caractherFilms" :key="films.id" :data-films="films" />
       </section>
 
       <section class="section-series">
           <h2>SERIE TV</h2>
+          <div class="no-results" v-if="caractherSeries == ''">Questa ricerca non ha prodotto risultati!</div>
           <box-serie-tv v-for="series in caractherSeries" :key="series.id" :data-series="series"/>
       </section>
   </main>
@@ -63,5 +65,9 @@ section {
 }
 .section-films {
     border-right: 5px solid rgb(255, 0, 0);
+}
+.no-results {
+    font-size: 30px;
+    margin-top: 30px;
 }
 </style>
