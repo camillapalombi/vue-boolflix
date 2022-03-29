@@ -21,6 +21,6 @@ props: {
 
 <style scoped lang="scss">
 .container-series {
-    margin: 40px auto;
+    margin: 40px;
 }
 </style>

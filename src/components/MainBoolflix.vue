@@ -1,5 +1,8 @@
 <template>
   <main>
+      
+      <vue-flag code='fr' size='small'/> <!--prova bandiera-->
+
       <section class="section-films">
           <h2>FILMS</h2>
           <box-film v-for="films in caractherFilms" :key="films.id" :data-films="films" />
@@ -50,7 +53,7 @@ props: {
 
 <style scoped lang="scss">
 main {
-    background-color: rgb(94, 94, 94);
+    background-color: rgb(128, 128, 128);
     min-height: calc(100vh - 5rem);
     display: flex;
 }
@@ -62,6 +65,6 @@ section {
     }
 }
 .section-films {
-    border-right: 5px solid black;
+    border-right: 5px solid rgb(255, 0, 0);
 }
 </style>
