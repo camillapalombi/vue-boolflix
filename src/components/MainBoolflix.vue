@@ -1,8 +1,5 @@
 <template>
   <main>
-      
-      <vue-flag code='fr' size='small'/> <!--prova bandiera-->
-
       <section class="section-films">
           <h2>FILMS</h2>
           <box-film v-for="films in caractherFilms" :key="films.id" :data-films="films" />
