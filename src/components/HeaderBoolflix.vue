@@ -4,7 +4,7 @@
       <h1>BOOLFLIX</h1>
 
       <div class="container-search">
-          <input class="input-search" type="text">
+          <input class="input-search" type="text" @keyup.enter="$emit('film-inserted', $event.target.value)">
           <button class="btn-search">Cerca</button>
       </div>
 

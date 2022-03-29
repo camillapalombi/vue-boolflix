@@ -1,12 +1,19 @@
 <template>
   <main>
-
+      <box-film />
   </main>
 </template>
 
 <script>
+import BoxFilm from './BoxFilm.vue';
 export default {
-name: 'MainBoolflix'
+name: 'MainBoolflix',
+components: {
+    BoxFilm
+},
+props: {
+    stringSearchFilm: String
+  },
 }
 </script>
 

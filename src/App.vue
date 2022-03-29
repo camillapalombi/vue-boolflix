@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!--HEADER-->
-    <header-boolflix />
+    <header-boolflix @film-inserted="SetFilmSrc"/>
     <!--MAIN-->
-    <main-boolflix />
+    <main-boolflix :string-search-film="stringSearchFilm"/>
 
   </div>
 </template>
@@ -14,10 +14,22 @@ import MainBoolflix from '../src/components/MainBoolflix.vue';
 
 export default {
   name: 'App',
+  data () {
+    return {
+      stringSearchFilm: '',
+    }
+  },
   components: {
     HeaderBoolflix,
     MainBoolflix,
+  },
+  methods: {
+    SetFilmSrc(filmArguments) {
+      console.log(filmArguments)
+      this.stringSearchFilm = filmArguments;
+    }
   }
+  
 }
 </script>
 
