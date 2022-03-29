@@ -1,6 +1,6 @@
 <template>
   <main>
-      <box-film />
+      <box-film v-for="films in caractherFilms" :key="films.id" :data-films="films" />
   </main>
 </template>
 
