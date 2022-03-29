@@ -4,8 +4,8 @@
       <h1>BOOLFLIX</h1>
 
       <div class="container-search">
-          <input class="input-search" type="text" @keyup.enter="$emit('film-inserted', $event.target.value)">
-          <button class="btn-search">Cerca</button>
+          <input class="input-search" type="text" v-model="stringSearchFilm" @keyup.enter="$emit('film-inserted', stringSearchFilm)">
+          <button class="btn-search" @click="$emit('film-inserted', stringSearchFilm)">Cerca</button>
       </div>
 
   </header>
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-name: 'HeaderBoolflix'
+name: 'HeaderBoolflix',
+data () {
+    return {
+        stringSearchFilm: '',
+    }
+}
 }
 </script>
 
