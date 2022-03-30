@@ -17,11 +17,11 @@
       <div class="lenguage" v-else-if="dataSeries.original_language == 'hi'"> <vue-flag code='in' size='medium'/> </div>
       <div class="lenguage" v-else > Lingua: {{ dataSeries.original_language }}</div>
 
-      <div class="rating" v-if="Math.ceil(dataSeries.vote_average /2) == 1"><span class="stars"> &bigstar; </span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 2"><span class="stars"> &bigstar; &bigstar; </span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 3"><span class="stars"> &bigstar; &bigstar; &bigstar; </span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 4"><span class="stars"> &bigstar; &bigstar; &bigstar; &bigstar; </span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 5"><span class="stars"> &bigstar; &bigstar; &bigstar; &bigstar; &bigstar; </span></div>
+      <div class="rating" v-if="Math.ceil(dataSeries.vote_average /2) == 1"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
+      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 2"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
+      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 3"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
+      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 4"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
+      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 5"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
       <div class="rating" v-else > Voto non presente </div>
 
   </div>
@@ -42,6 +42,6 @@ props: {
 }
 .stars {
     color: yellow;
-    font-size: 30px;
+    font-size: 20px;
 }
 </style>
