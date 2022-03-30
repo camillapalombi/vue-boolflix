@@ -1,30 +1,45 @@
 <template>
   <div class="container-series">
+      <!--FLIP BOX-->
+      <div class="flip-box">
+        <div class="flip-box-inner">
+            <!--FRONTE-->
+            <div class="flip-box-front">
 
-      <img :src="`https://image.tmdb.org/t/p/w185/${dataSeries.poster_path}`" :alt="dataSeries.original_name" v-if="dataSeries.poster_path != null">
-      <div class="poster-null" v-else>POSTER NON DISPONIBILE</div>
-
-      <h3 class="title">Titolo: {{ dataSeries.name}}</h3>
-      <h3 class="original-title">Titolo originale: {{ dataSeries.original_name}}</h3>
-      <div class="lenguage" v-if="dataSeries.original_language == 'en'"> <vue-flag code='gb' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'it'"> <vue-flag code='it' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'ja'"> <vue-flag code='jp' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'ko'"> <vue-flag code='kr' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'es'"> <vue-flag code='es' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'zh'"> <vue-flag code='cn' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'fr'"> <vue-flag code='fr' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'de'"> <vue-flag code='de' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'pt'"> <vue-flag code='pt' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'ru'"> <vue-flag code='ru' size='medium'/> </div>
-      <div class="lenguage" v-else-if="dataSeries.original_language == 'hi'"> <vue-flag code='in' size='medium'/> </div>
-      <div class="lenguage" v-else > Lingua: {{ dataSeries.original_language }}</div>
-
-      <div class="rating" v-if="Math.ceil(dataSeries.vote_average /2) == 1"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 2"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 3"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 4"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-      <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 5"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-      <div class="rating" v-else > Serie Tv non ancora votata </div>
+                <!--POSTER SERIE TV-->
+                <img class="poster-serie" :src="`https://image.tmdb.org/t/p/w342/${dataSeries.poster_path}`" :alt="dataSeries.original_name" v-if="dataSeries.poster_path != null">
+                <div class="poster-null" v-else>POSTER NON DISPONIBILE</div>
+            </div>
+            <!--RETRO-->
+            <div class="flip-box-back">
+                <!--TITOLI-->
+                <h3 class="title">TITOLO: {{ dataSeries.name}}</h3>
+                <h3 class="original-title">TITOLO ORIGINALE: {{ dataSeries.original_name}}</h3>
+                <!--LINGUE-->
+                <div class="lenguage" v-if="dataSeries.original_language == 'en'"> <vue-flag code='gb' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'it'"> <vue-flag code='it' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'ja'"> <vue-flag code='jp' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'ko'"> <vue-flag code='kr' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'es'"> <vue-flag code='es' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'zh'"> <vue-flag code='cn' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'fr'"> <vue-flag code='fr' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'de'"> <vue-flag code='de' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'pt'"> <vue-flag code='pt' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'ru'"> <vue-flag code='ru' size='medium'/> </div>
+                <div class="lenguage" v-else-if="dataSeries.original_language == 'hi'"> <vue-flag code='in' size='medium'/> </div>
+                <div class="lenguage" v-else > Lingua: {{ dataSeries.original_language }}</div>
+                <!--VOTI-->
+                <div class="rating" v-if="Math.ceil(dataSeries.vote_average /2) == 1"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
+                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 2"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
+                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 3"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
+                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 4"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
+                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 5"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
+                <div class="rating" v-else > Serie Tv non ancora votata </div>
+                <!--TRAMA-->
+                <div class="overview">{{dataSeries.overview}}</div>
+            </div>
+        </div>
+    </div>
 
   </div>
 </template>
@@ -40,15 +55,56 @@ props: {
 
 <style scoped lang="scss">
 .container-series {
-    margin: 50px;
+    margin: 50px auto;
 }
 .poster-null {
     font-size: 18px;
     color: red;
     font-weight: bold;
 }
+.poster-serie {
+    height: 513px;
+}
 .stars {
     color: yellow;
     font-size: 20px;
+}
+/*FLIP BOX*/
+.flip-box {
+  background-color: transparent;
+  width: 342px;
+  height: 513px;
+  perspective: 1000px;
+}
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+.flip-box-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow-y: auto;
 }
 </style>
