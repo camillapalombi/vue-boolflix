@@ -1,7 +1,9 @@
 <template>
   <div class="container-films">
 
-      <img :src="`https://image.tmdb.org/t/p/w185/${dataFilms.poster_path}`" :alt="dataFilms.original_title">
+      <img :src="`https://image.tmdb.org/t/p/w185/${dataFilms.poster_path}`" :alt="dataFilms.original_title" v-if="dataFilms.poster_path != null">
+      <div class="poster-null" v-else>POSTER NON DISPONIBILE</div>
+
       <h3 class="title">Titolo: {{ dataFilms.title}}</h3>
       <h3 class="original-title">Titolo originale: {{ dataFilms.original_title}}</h3>
       <div class="lenguage" v-if="dataFilms.original_language == 'en'"> <vue-flag code='gb' size='medium'/> </div>
@@ -22,7 +24,7 @@
       <div class="rating" v-else-if="Math.ceil(dataFilms.vote_average /2) == 3"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
       <div class="rating" v-else-if="Math.ceil(dataFilms.vote_average /2) == 4"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
       <div class="rating" v-else-if="Math.ceil(dataFilms.vote_average /2) == 5"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-      <div class="rating" v-else > Voto non presente </div>
+      <div class="rating" v-else > Film non ancora votato </div>
       
 
   </div>
@@ -40,7 +42,12 @@ props: {
 
 <style scoped lang="scss">
 .container-films {
-    margin: 40px auto;
+    margin: 50px auto;
+}
+.poster-null {
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
 }
 .stars {
     color: yellow;

@@ -1,7 +1,9 @@
 <template>
   <div class="container-series">
 
-      <img :src="`https://image.tmdb.org/t/p/w185/${dataSeries.poster_path}`" :alt="dataSeries.original_name">
+      <img :src="`https://image.tmdb.org/t/p/w185/${dataSeries.poster_path}`" :alt="dataSeries.original_name" v-if="dataSeries.poster_path != null">
+      <div class="poster-null" v-else>POSTER NON DISPONIBILE</div>
+
       <h3 class="title">Titolo: {{ dataSeries.name}}</h3>
       <h3 class="original-title">Titolo originale: {{ dataSeries.original_name}}</h3>
       <div class="lenguage" v-if="dataSeries.original_language == 'en'"> <vue-flag code='gb' size='medium'/> </div>
@@ -22,7 +24,7 @@
       <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 3"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
       <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 4"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
       <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 5"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-      <div class="rating" v-else > Voto non presente </div>
+      <div class="rating" v-else > Serie Tv non ancora votata </div>
 
   </div>
 </template>
@@ -38,7 +40,12 @@ props: {
 
 <style scoped lang="scss">
 .container-series {
-    margin: 40px;
+    margin: 50px;
+}
+.poster-null {
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
 }
 .stars {
     color: yellow;
