@@ -1,9 +1,9 @@
 <template>
   <div class="container-series">
 
+      <img :src="`https://image.tmdb.org/t/p/w185/${dataSeries.poster_path}`" :alt="dataSeries.original_name">
       <h3 class="title">Titolo: {{ dataSeries.name}}</h3>
       <h3 class="original-title">Titolo originale: {{ dataSeries.original_name}}</h3>
-
       <div class="lenguage" v-if="dataSeries.original_language == 'en'"> <vue-flag code='gb' size='medium'/> </div>
       <div class="lenguage" v-else-if="dataSeries.original_language == 'it'"> <vue-flag code='it' size='medium'/> </div>
       <div class="lenguage" v-else-if="dataSeries.original_language == 'ja'"> <vue-flag code='jp' size='medium'/> </div>
