@@ -1,6 +1,6 @@
 <template>
   <div class="container-films">
-
+      
       <h3 class="title">Titolo: {{ dataFilms.title}}</h3>
       <h3 class="original-title">Titolo originale: {{ dataFilms.original_title}}</h3>
       <div class="lenguage" v-if="dataFilms.original_language == 'en'"> <vue-flag code='gb' size='medium'/> </div>

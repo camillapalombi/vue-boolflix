@@ -3,7 +3,7 @@
     <!--HEADER-->
     <header-boolflix @film-inserted="SetFilmSrc"/>
     <!--MAIN-->
-    <main-boolflix :string-search-film="stringSearchFilm"/>
+    <main-boolflix :caracther-films="caractherFilms" :caracther-series="caractherSeries"/>
 
   </div>
 </template>
@@ -11,12 +11,14 @@
 <script>
 import HeaderBoolflix from '../src/components/HeaderBoolflix.vue';
 import MainBoolflix from '../src/components/MainBoolflix.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
   data () {
     return {
-      stringSearchFilm: '',
+      caractherFilms: [],
+      caractherSeries: []
     }
   },
   components: {
@@ -24,10 +26,19 @@ export default {
     MainBoolflix,
   },
   methods: {
-    SetFilmSrc(filmArguments) {
-      console.log(filmArguments)
-      this.stringSearchFilm = filmArguments;
+    SetFilmSrc(stringSearchFilm) {
+      if (stringSearchFilm != '') {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=7f0f1cb86088f95987911722d21959f7&language=en-US&query=${stringSearchFilm}&page=1&include_adult=false`).then((response) => {
+          this.caractherFilms = response.data.results;
+          console.log(this.caractherFilms);
+        });
+        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=7f0f1cb86088f95987911722d21959f7&language=en-US&query=${stringSearchFilm}&page=1&include_adult=false`).then((response) => {
+          this.caractherSeries = response.data.results;
+          console.log(this.caractherSeries);
+      });
+      }
     },
+
   }
 }
 </script>
@@ -37,6 +48,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 </style>

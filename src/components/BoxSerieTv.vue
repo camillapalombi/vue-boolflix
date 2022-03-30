@@ -26,7 +26,6 @@
 export default {
 name: 'BoxSerieTv',
 props: {
-    dataFilms: Object,
     dataSeries: Object,
 }
 }

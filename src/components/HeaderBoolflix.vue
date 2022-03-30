@@ -4,7 +4,7 @@
       <h1>BOOLFLIX</h1>
 
       <div class="container-search">
-          <input class="input-search" type="text" v-model="stringSearchFilm" @keyup.enter="functionSearch()">
+          <input class="input-search" type="text" placeholder="Cosa vuoi guardare?" v-model="stringSearchFilm" @keyup.enter="functionSearch()">
           <button class="btn-search" @click="functionSearch()">Cerca</button>
       </div>
 

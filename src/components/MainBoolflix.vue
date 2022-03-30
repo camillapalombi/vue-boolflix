@@ -2,13 +2,13 @@
   <main>
       <section class="section-films">
           <h2>FILMS</h2>
-          <div class="no-results" v-if="caractherFilms == ''">Questa ricerca non ha prodotto risultati!</div>
-          <box-film v-else v-for="films in caractherFilms" :key="films.id" :data-films="films" />
+          <!-- <div class="no-results" v-if="caractherFilms == []">Questa ricerca non ha prodotto risultati!</div> -->
+          <box-film v-for="films in caractherFilms" :key="films.id" :data-films="films" />
       </section>
 
       <section class="section-series">
           <h2>SERIE TV</h2>
-          <div class="no-results" v-if="caractherSeries == ''">Questa ricerca non ha prodotto risultati!</div>
+          <!-- <div class="no-results" v-if="caractherSeries == []">Questa ricerca non ha prodotto risultati!</div> -->
           <box-serie-tv v-for="series in caractherSeries" :key="series.id" :data-series="series"/>
       </section>
   </main>
@@ -17,34 +17,17 @@
 <script>
 import BoxFilm from './BoxFilm.vue';
 import BoxSerieTv from './BoxSerieTv.vue';
-import axios from 'axios';
 
 export default {
-name: 'MainBoolflix',
-data () {
-    return {
-        caractherFilms: null,
-        caractherSeries: null,
+    name: 'MainBoolflix',
+    components: {
+        BoxFilm,
+        BoxSerieTv,
+    },
+    props: {
+        caractherFilms: Array,
+        caractherSeries: Array
     }
-},
-components: {
-    BoxFilm,
-    BoxSerieTv,
-},
-props: {
-    stringSearchFilm: String
-},
-  created () {
-      setTimeout(() => {
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=7f0f1cb86088f95987911722d21959f7&language=en-US&query=${this.stringSearchFilm}&page=1&include_adult=false`).then((response) => {
-          this.caractherFilms = response.data.results;
-          console.log(this.caractherFilms);
-        });
-        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=7f0f1cb86088f95987911722d21959f7&language=en-US&query=${this.stringSearchFilm}&page=1&include_adult=false`).then((response) => {
-          this.caractherSeries = response.data.results;
-          console.log(this.caractherSeries);
-      });
-    }, 6000)},
 }
 
 
