@@ -1,6 +1,6 @@
 <template>
   <div class="container-films">
-      
+
       <img :src="`https://image.tmdb.org/t/p/w185/${dataFilms.poster_path}`" :alt="dataFilms.original_title">
       <h3 class="title">Titolo: {{ dataFilms.title}}</h3>
       <h3 class="original-title">Titolo originale: {{ dataFilms.original_title}}</h3>
@@ -17,7 +17,7 @@
       <div class="lenguage" v-else-if="dataFilms.original_language == 'hi'"> <vue-flag code='in' size='medium'/> </div>
       <div class="lenguage" v-else > Lingua: {{ dataFilms.original_language }}</div>
 
-      <div class="rating">Voto: {{ dataFilms.vote_average}}</div>
+      <div class="rating">Voto: {{ Math.ceil(dataFilms.vote_average /2) }}</div>
 
   </div>
 </template>

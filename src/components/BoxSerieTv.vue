@@ -17,7 +17,7 @@
       <div class="lenguage" v-else-if="dataSeries.original_language == 'hi'"> <vue-flag code='in' size='medium'/> </div>
       <div class="lenguage" v-else > Lingua: {{ dataSeries.original_language }}</div>
 
-      <div class="rating">Voto: {{ dataSeries.vote_average}}</div>
+      <div class="rating">Voto: {{ Math.ceil(dataSeries.vote_average /2) }}</div>
 
   </div>
 </template>
