@@ -38,6 +38,7 @@ header {
 
     h1 {
         color: red;
+        font-size: 35px;
         cursor: pointer;
     }
     .input-search {

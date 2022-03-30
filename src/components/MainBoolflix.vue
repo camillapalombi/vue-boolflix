@@ -1,7 +1,7 @@
 <template>
   <main>
       <section class="section-films">
-          <h2>FILMS</h2>
+          <h2>MOVIE</h2>
           <div class="container-single-box">
             <div class="no-results" v-if="caractherFilms == ''"> Questa ricerca non ha prodotto risultati! </div>
             <box-film v-else v-for="films in caractherFilms" :key="films.id" :data-films="films" />
@@ -39,7 +39,7 @@ export default {
 
 <style scoped lang="scss">
 main {
-    background-color: rgb(128, 128, 128);
+    background-color: rgb(90, 90, 90);
     min-height: calc(100vh - 5rem);
     display: flex;
 }
@@ -48,10 +48,8 @@ section {
     text-align: center;
     h2 {
         margin-top: 15px;
+        font-size: 30px;
     }
-}
-.section-films {
-    border-right: 4px solid rgb(32, 31, 31);
 }
 .no-results {
     font-size: 30px;
@@ -59,7 +57,9 @@ section {
 }
 
 .container-single-box {
+    width: 710px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 </style>
