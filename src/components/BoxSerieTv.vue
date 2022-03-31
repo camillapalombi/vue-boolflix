@@ -29,12 +29,18 @@
                 <div class="lenguage" v-else-if="dataSeries.original_language == 'hi'"> <vue-flag code='in' size='medium'/> </div>
                 <div class="lenguage" v-else > Lingua: {{ dataSeries.original_language }}</div>
                 <!--VOTI-->
-                <div class="rating" v-if="Math.ceil(dataSeries.vote_average /2) == 1"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
-                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 2"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
-                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 3"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 4"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-                <div class="rating" v-else-if="Math.ceil(dataSeries.vote_average /2) == 5"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
-                <div class="rating" v-else > Serie Tv non ancora votata </div>
+                <div class="rating">
+                              <!--stelle gialle piene-->
+                    <font-awesome-icon class="stars-solid"
+                    v-for="i in Math.ceil(dataSeries.vote_average /2)"
+                    :key="'pieni' + i"
+                    icon="fas fa-star star-solid"/>
+                              <!--stelle bianche vuote-->
+                    <font-awesome-icon class="stars-empty"
+                    v-for="i in (5 - Math.ceil(dataSeries.vote_average /2))"
+                    :key="'vuoti' + i"
+                    icon="fa-regular fa-star star-regular"/>
+                </div>
                 <!--TRAMA-->
                 <div class="overview">{{dataSeries.overview}}</div>
             </div>
@@ -65,8 +71,12 @@ props: {
     height: 513px;
     width: 342px;
 }
-.stars {
+.stars-solid {
     color: yellow;
+    font-size: 20px;
+}
+.stars-empty {
+    color: white;
     font-size: 20px;
 }
 /*FLIP BOX*/
