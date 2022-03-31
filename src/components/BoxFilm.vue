@@ -1,5 +1,5 @@
 <template>
-  <div class="container-films">
+  <div @mouseenter="findActors()" class="container-films">
 
       <!--FLIP BOX-->
       <div class="flip-box">
@@ -46,6 +46,10 @@
                 </div>
                 <!--TRAMA-->
                 <div class="overview">{{dataFilms.overview}}</div>
+                <!--ATTORI-->
+                <div v-if="filmCast != null" class="actors-films"> ATTORI:
+                  <div>{{ filmCast[0].name + ", " + filmCast[1].name + ", " + filmCast[2].name + ", " + filmCast[3].name + ", " + filmCast[4].name }}</div>
+                </div>
 
             </div>
         </div>
@@ -56,11 +60,25 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 name: 'BoxFilm',
+data () {
+  return {
+    filmCast: null,
+  }
+},
 props: {
     dataFilms: Object
 },
+methods: {
+    findActors() {
+      axios.get("https://api.themoviedb.org/3/movie/" + this.dataFilms.id + "/credits?api_key=7f0f1cb86088f95987911722d21959f7&language=it-IT")
+        .then((response) => {
+          this.filmCast = response.data.cast;
+        });
+    }
+    },
 }
 
 </script>
@@ -85,7 +103,7 @@ props: {
     color: white;
     font-size: 20px;
 }
-.title , .overview {
+.title , .actors-films {
   margin-top: 15px;
   margin-bottom: 15px;
 }

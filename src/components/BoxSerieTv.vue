@@ -1,5 +1,5 @@
 <template>
-  <div class="container-series">
+  <div @mouseenter="findActorsSerie()" class="container-series">
       <!--FLIP BOX-->
       <div class="flip-box">
         <div class="flip-box-inner">
@@ -43,6 +43,10 @@
                 </div>
                 <!--TRAMA-->
                 <div class="overview">{{dataSeries.overview}}</div>
+                <!--ATTORI-->
+                <div v-if="serieCast != null" class="actors-series"> ATTORI:
+                  <div>{{ serieCast[0].name + ", " + serieCast[1].name + ", " + serieCast[2].name + ", " + serieCast[3].name + ", " + serieCast[4].name }}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -51,11 +55,25 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 name: 'BoxSerieTv',
+data () {
+  return {
+    serieCast: null,
+  }
+},
 props: {
     dataSeries: Object,
-}
+},
+methods: {
+    findActorsSerie() {
+      axios.get("https://api.themoviedb.org/3/tv/" + this.dataSeries.id + "/credits?api_key=7f0f1cb86088f95987911722d21959f7&language=it-IT")
+        .then((response) => {
+          this.serieCast = response.data.cast;
+        });
+    }
+    },
 }
 </script>
 
@@ -79,7 +97,7 @@ props: {
     color: white;
     font-size: 20px;
 }
-.title , .overview {
+.title , .actors-series {
   margin-top: 15px;
   margin-bottom: 15px;
 }

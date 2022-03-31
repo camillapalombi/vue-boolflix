@@ -1,7 +1,7 @@
 <template>
   <main>
       <section class="section-films">
-          <h2>MOVIE</h2> <font-awesome-icon icon="fa-regular fa-clapperboard-play" />
+          <h2>MOVIE</h2>
           <div class="container-single-box">
             <div class="no-results" v-if="caractherFilms == ''"> Questa ricerca non ha prodotto risultati! </div>
             <box-film v-else v-for="films in caractherFilms" :key="films.id" :data-films="films" />
