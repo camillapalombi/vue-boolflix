@@ -9,13 +9,15 @@ Vue.component('VueFlag', VueFlag)
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import specific icons */
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons'
+import { faStar as starRegular } from '@fortawesome/free-regular-svg-icons'
 
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* add icons to the library */
-library.add(faStar)
+library.add(starSolid)
+library.add(starRegular)
 
 
 /* add font awesome icon component */

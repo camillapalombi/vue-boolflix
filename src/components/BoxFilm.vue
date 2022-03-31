@@ -9,7 +9,7 @@
 
                 <!--POSTER FILM-->
                 <img class="poster-film" :src="`https://image.tmdb.org/t/p/w342/${dataFilms.poster_path}`" :alt="dataFilms.original_title" v-if="dataFilms.poster_path != null">
-                <div class="poster-null" v-else>POSTER NON DISPONIBILE</div>
+                <img class="poster-null" v-else src="../assets/img/netflix.webp" alt="netflix poster">
             </div>
 
             <!--RETRO-->
@@ -32,7 +32,7 @@
                 <div class="lenguage" v-else-if="dataFilms.original_language == 'hi'"> <vue-flag code='in' size='medium'/> </div>
                 <div class="lenguage" v-else > Lingua: {{ dataFilms.original_language }}</div>
                 <!--VOTI-->
-                <div class="rating" v-if="Math.ceil(dataFilms.vote_average /2) == 1"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
+                <div class="rating" v-if="Math.ceil(dataFilms.vote_average /2) == 1"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-regular fa-star" /> <font-awesome-icon icon="fa-regular fa-star" /> <font-awesome-icon icon="fa-regular fa-star" /> <font-awesome-icon icon="fa-regular fa-star" /> </span></div>
                 <div class="rating" v-else-if="Math.ceil(dataFilms.vote_average /2) == 2"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> </span></div>
                 <div class="rating" v-else-if="Math.ceil(dataFilms.vote_average /2) == 3"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
                 <div class="rating" v-else-if="Math.ceil(dataFilms.vote_average /2) == 4"><span class="stars"> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /> <font-awesome-icon icon="fa-solid fa-star" /></span></div>
@@ -64,12 +64,12 @@ props: {
     margin: 50px auto;
 }
 .poster-null {
-    font-size: 18px;
-    color: red;
-    font-weight: bold;
+    width: 342px;
+    height: 513px;
 }
 .poster-film {
     height: 513px;
+    width: 342px;
 }
 .stars {
     color: yellow;
@@ -110,7 +110,7 @@ props: {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   overflow-y: auto;
 }
 </style>

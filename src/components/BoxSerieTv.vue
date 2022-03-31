@@ -8,7 +8,7 @@
 
                 <!--POSTER SERIE TV-->
                 <img class="poster-serie" :src="`https://image.tmdb.org/t/p/w342/${dataSeries.poster_path}`" :alt="dataSeries.original_name" v-if="dataSeries.poster_path != null">
-                <div class="poster-null" v-else>POSTER NON DISPONIBILE</div>
+                <img class="poster-null" v-else src="../assets/img/netflix.webp" alt="netflix poster">
             </div>
             <!--RETRO-->
             <div class="flip-box-back">
@@ -58,12 +58,12 @@ props: {
     margin: 50px auto;
 }
 .poster-null {
-    font-size: 18px;
-    color: red;
-    font-weight: bold;
+    width: 342px;
+    height: 513px;
 }
 .poster-serie {
     height: 513px;
+    width: 342px;
 }
 .stars {
     color: yellow;
@@ -104,7 +104,7 @@ props: {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   overflow-y: auto;
 }
 </style>
