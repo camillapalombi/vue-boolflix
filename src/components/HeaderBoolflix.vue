@@ -38,19 +38,21 @@ header {
 
     h1 {
         color: red;
-        font-size: 35px;
+        font-size: 38px;
         cursor: pointer;
     }
     .input-search {
         height: 30px;
         width: 200px;
         padding: .3rem;
+        border-radius: 7px;
     }
     .btn-search {
         color: white;
         background-color: red;
         padding: .5rem 1.3rem;
         border: none;
+        border-radius: 7px;
         font-size: 16px;
         margin-left: 10px;
         cursor: pointer;

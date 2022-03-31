@@ -85,6 +85,10 @@ props: {
     color: white;
     font-size: 20px;
 }
+.title , .overview {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 /*FLIP BOX*/
 .flip-box {
   background-color: transparent;
