@@ -1,5 +1,5 @@
 <template>
-  <div @mouseenter="findActorsSerie()" class="container-series">
+  <div class="container-series">
       <!--FLIP BOX-->
       <div class="flip-box">
         <div class="flip-box-inner">
@@ -66,14 +66,12 @@ data () {
 props: {
     dataSeries: Object,
 },
-methods: {
-    findActorsSerie() {
+created () {
       axios.get("https://api.themoviedb.org/3/tv/" + this.dataSeries.id + "/credits?api_key=7f0f1cb86088f95987911722d21959f7&language=it-IT")
         .then((response) => {
           this.serieCast = response.data.cast;
         });
     }
-    },
 }
 </script>
 

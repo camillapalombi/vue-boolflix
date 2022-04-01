@@ -1,5 +1,5 @@
 <template>
-  <div @mouseenter="findActors()" class="container-films">
+  <div class="container-films">
 
       <!--FLIP BOX-->
       <div class="flip-box">
@@ -71,15 +71,13 @@ data () {
 props: {
     dataFilms: Object
 },
-methods: {
-    findActors() {
+    created () {
       axios.get("https://api.themoviedb.org/3/movie/" + this.dataFilms.id + "/credits?api_key=7f0f1cb86088f95987911722d21959f7&language=it-IT")
         .then((response) => {
           this.filmCast = response.data.cast;
         });
     }
-    },
-}
+    }
 
 </script>
 

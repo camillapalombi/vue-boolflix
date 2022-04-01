@@ -3,7 +3,7 @@
       <section class="section-films">
           <h2>MOVIE</h2>
           <div class="container-single-box">
-            <div class="no-results" v-if="caractherFilms == ''"> Questa ricerca non ha prodotto risultati! </div>
+            <div class="no-results" v-if="caractherFilms.length == 0"> Questa ricerca non ha prodotto risultati! </div>
             <box-film v-else v-for="films in caractherFilms" :key="films.id" :data-films="films" />
           </div>
       </section>
@@ -11,7 +11,7 @@
       <section class="section-series">
         <h2>SERIE TV</h2>
         <div class="container-single-box">
-            <div class="no-results" v-if="caractherSeries == ''">Questa ricerca non ha prodotto risultati!</div>
+            <div class="no-results" v-if="caractherSeries.length == 0">Questa ricerca non ha prodotto risultati!</div>
             <box-serie-tv v-else v-for="series in caractherSeries" :key="series.id" :data-series="series"/>
         </div>
       </section>
